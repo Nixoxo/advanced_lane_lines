@@ -6,7 +6,8 @@ In this project, my goal is to write a software pipeline to identify the lane bo
 
 1. Images of chessboard are located in the folder camera_cal
 2. Images for report are in the folder report
-3. 
+3. All python scripts are in the folder scripts
+4. The notebook [P4](P4.iypnb) 
 
 
 The Project
@@ -83,7 +84,7 @@ The code can be seen in [extraction.py](scripts/extraction.py)
 In this we want to transform the image from 3D to a 2D perspective. The image will be represented as a bird views of the road.
 Before the transformation I also will reduce the region of interest to achieve a better result. The can be seen in [region_of_interest.py](scripts/region_of_interest.py)
 
-![Region of interest](report/region_of_interest.png)
+![Region of interest](output_images/region_of_interest.png)
 
 ### Birds View
 For the transformation I picked four points of the 3D image and mapped them on a 2D image. This was an trial and error approached and after some time it worked successfully. I used the function cv2.getPerspectiveTransform() to calculate the matrix for the 3D to 2D transformation. After I computed the matrix I used the function cv2.warpPerspective() to create the birds view perspective. The whole code can be read in the script [perspective.py](scripts/perspective.py).
