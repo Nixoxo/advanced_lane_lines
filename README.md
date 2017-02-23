@@ -122,4 +122,14 @@ To calculate the offset from the car I decided that the camera is in the center 
 
 The code can be seen in [curvature.py](scripts/curvature.py).
 
+## 7. Warp and putting the information together
 
+There was a lot of information computed in the birds view and we want to put the information back to the real image. In order to achieve this we have to compute the inverse of the matrix which was computed for the 3D to 2D transformation. This is done by switching the src and dist in the function **cv2.getPerspectiveTransform()**. The code for this part can be seen in the **get_matrix_for_brids_view_to_3d()** function at the [perspective.py](scripts/perspective.py) file.
+
+![Warped](report/result.png)
+
+In order to put the whole information together I decided to create a new picture consisting of several small images. The code for this can be seen from Line 47-72 in the script [pipeline.py](pipeline.py).
+
+The final result:
+
+![Final result](report/final.png)
