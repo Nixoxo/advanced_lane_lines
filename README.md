@@ -7,14 +7,14 @@ The Project
 
 The goals / steps of this project are the following:
 
-1 Camera calibration Compute the camera calibration matrix and distortion coefficients given a set of chessboard images.
-2 Apply a distortion correction to raw images.
-3 Use color transforms, gradients, etc., to create a thresholded binary image.
-4 Apply a perspective transform to rectify binary image ("birds-eye view").
-5 Detect lane pixels and fit to find the lane boundary.
-6 Determine the curvature of the lane and vehicle position with respect to center.
-7 Warp the detected lane boundaries back onto the original image.
-8 Output visual display of the lane boundaries and numerical estimation of lane curvature and vehicle position.
+1. Camera calibration Compute the camera calibration matrix and distortion coefficients given a set of chessboard images.
+2. Apply a distortion correction to raw images.
+3. Use color transforms, gradients, etc., to create a thresholded binary image.
+4. Apply a perspective transform to rectify binary image ("birds-eye view").
+5. Detect lane pixels and fit to find the lane boundary.
+6. Determine the curvature of the lane and vehicle position with respect to center.
+7. Warp the detected lane boundaries back onto the original image.
+8. Output visual display of the lane boundaries and numerical estimation of lane curvature and vehicle position.
 
 The images for camera calibration are stored in the folder called `camera_cal`.  The images in `test_images` are for testing your pipeline on single frames.  If you want to extract more test images from the videos, you can simply use an image writing method like `cv2.imwrite()`, i.e., you can read the video in frame by frame as usual, and for frames you want to save for later you can write to an image file.  
 
@@ -45,6 +45,27 @@ The whole process can be easily described by looking at the following picture.
 
 The code can be seen in [distortion.py](scripts/distortion.py)
 
-### Applied camera calibration on road images
+## 2. Applied camera calibration on road images
 
 ![Road images distored to undistorted](report/road_undistort.png)
+
+## 3. Color & Gradient Thresholding
+Another issue we have to tackle is the information extraction of the road. This means to exclude the pixels which define the background. For example, we don't care about trees and other cars at the moment.
+
+In order to achieve a useful information extraction of the road we need to filter out pixels of the image which we don't care in general. I used a combination of color and gradient thresholding to extract the important features of the image.
+
+For the color extraction I changed the representation of the image from RGB to HLS. HLS described hue, luminosity and saturation of the image. I used different threshold to filter the pixels for hue and saturation. 
+
+![Hue and saturation](report/hue_and_saturation.png)
+
+For the gradient extraction I changed the representation of the image from RGB to GRAY. I applied the techniques sobe operator, magnitude and direction of the gradient to the gray image.
+
+![Sobel operator, magnitude and direction of the gradient](report/sobel_etc.png)
+
+Furthermore I combined the sobel operator, magnitude and direction of the gradient into one image.
+
+![Combined sobel operator, magnitude and direction of the gradient](report/combined_sobel.png)
+
+In the last step, I combined the hue and saturation image with the combined gradient image. The result of this step is following:
+
+![Combined sobel operator, magnitude and direction of the gradient](report/combined.png)
