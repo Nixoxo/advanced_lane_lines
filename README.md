@@ -141,3 +141,7 @@ Until this point we only had one image processed step by step. I used the pipeli
 
 ## 9. Discussion
 
+I think it did a good job for this project. I am mostly satisfied with the result. However, I have to points where I am not satisfied at the moment:
+
+1. The left curvature is not accurate enough. Sometimes the left curvature has a really high value. I guess that this is depend on the amount lane points. I am still looking to fix this.
+2. Sometimes the insert poly on the road does to heavy changes. I am looking for a not so radical update method here.
