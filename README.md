@@ -44,3 +44,7 @@ The whole process can be easily described by looking at the following picture.
 ![Distort and undistored Images](report/chessboard_undistort.png)
 
 The code can be seen in [distortion.py](scripts/distortion.py)
+
+### Applied camera calibration on road images
+
+![Road images distored to undistorted](report/road_undistort.png)
