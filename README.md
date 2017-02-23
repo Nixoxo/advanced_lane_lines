@@ -78,3 +78,7 @@ Before the transformation I also will reduce the region of interest to achieve a
 
 ![Region of interest](report/region_of_interest.png)
 
+### Birds View
+For the transformation I picked four points of the 3D image and mapped them on a 2D image. This was an trial and error approached and after some time it worked successfully. I used the function cv2.getPerspectiveTransform() to calculate the matrix for the 3D to 2D transformation. After I computed the matrix I used the function cv2.warpPerspective() to create the birds view perspective. The whole code can be read in the script [perspective.py](scripts/perspective.py).
+
+![Birds view](report/birdsview.png)
