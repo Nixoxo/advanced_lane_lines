@@ -82,3 +82,14 @@ Before the transformation I also will reduce the region of interest to achieve a
 For the transformation I picked four points of the 3D image and mapped them on a 2D image. This was an trial and error approached and after some time it worked successfully. I used the function cv2.getPerspectiveTransform() to calculate the matrix for the 3D to 2D transformation. After I computed the matrix I used the function cv2.warpPerspective() to create the birds view perspective. The whole code can be read in the script [perspective.py](scripts/perspective.py).
 
 ![Birds view](report/birdsview.png)
+
+## 5. Detection and fitting of the left and right lane
+The next step is to think about how we can create lines which show the shape of the road on the birds view image. Before diving into the details, I analyzed the birds view image with an histogram
+
+![Histogram](report/histogram.png)
+
+We can see a huge peak of the histogram at an certain point. This information can be used to draw an lane through these points. I am using an second ordered polynomial to fit the lane. The relevant points of the birds view image are extracted by an sliding window to fit the polynomial.
+
+For the sliding window we define an height and width. Also we set a number of windows. At the beginning we identify the base of the left and right side. Then we iterate through number of windows and change position of the window to get the smallest amount of zero pixels. The result is the following:
+
+[Sliding window](report/sliding_window.png)
