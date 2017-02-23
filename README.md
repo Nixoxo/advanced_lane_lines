@@ -92,4 +92,6 @@ We can see a huge peak of the histogram at an certain point. This information ca
 
 For the sliding window we define an height and width. Also we set a number of windows. At the beginning we identify the base of the left and right side. Then we iterate through number of windows and change position of the window to get the smallest amount of zero pixels. The result is the following:
 
-[Sliding window](report/sliding_window.png)
+![Sliding window](report/sliding_window.png)
+
+The code can be seen in [sliding.py](scripts/sliding.py).
