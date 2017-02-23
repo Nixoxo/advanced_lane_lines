@@ -42,3 +42,5 @@ The whole process can be easily described by looking at the following picture.
 3. We apply the computed distortion coefficients by using [cv2.undistort](http://docs.opencv.org/2.4/modules/imgproc/doc/geometric_transformations.html#void undistort(InputArray src, OutputArray dst, InputArray cameraMatrix, InputArray distCoeffs, InputArray newCameraMatrix)) and see the result:
 
 ![Distort and undistored Images](report/chessboard_undistort.png)
+
+The code can be seen in [distortion.py](scripts/distortion.py)
