@@ -73,3 +73,8 @@ In the last step, I combined the hue and saturation image with the combined grad
 The code can be seen in [extraction.py](scripts/extraction.py)
 
 ## 4. Perspective transform
+In this we want to transform the image from 3D to a 2D perspective. The image will be represented as a bird views of the road.
+Before the transformation I also will reduce the region of interest to achieve a better result. The can be seen in [region_of_interest.py](scripts/region_of_interest.py)
+
+![Region of interest](report/region_of_interest.png)
+
