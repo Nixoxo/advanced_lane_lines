@@ -86,14 +86,14 @@ def process_image(img):
         #return img
 
 def video():
-    white_output = 'white.mp4'
+    project_output = 'project_video_output.mp4'
     clip1 = VideoFileClip("project_video.mp4")
     white_clip = clip1.fl_image(process_image)  # NOTE: this function expects color images!!
-    white_clip.write_videofile(white_output, audio=False)
+    white_clip.write_videofile(project_output, audio=False)
 
 if __name__ == '__main__':
     #util()
-    #video()
+    video()
     #test_file = 'test_images/straight_lines1.jpg'
     test_file = 'test_images/test4.jpg'
     test_file = 'test_images/broken/broken10.jpg'

@@ -133,3 +133,11 @@ In order to put the whole information together I decided to create a new picture
 The final result:
 
 ![Final result](report/final.png)
+
+
+## 8. Video
+
+Until this point we only had one image processed step by step. I used the pipeline function in [pipeline.py](pipeline.py) to create video with the moviepy library. The video can be found in repository. ([video](project_video_advanced.mp4))
+
+## 9. Discussion
+
