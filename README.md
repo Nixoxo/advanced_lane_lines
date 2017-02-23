@@ -95,3 +95,31 @@ For the sliding window we define an height and width. Also we set a number of wi
 ![Sliding window](report/sliding_window.png)
 
 The code can be seen in [sliding.py](scripts/sliding.py).
+
+## 6. Curvature of lanes and vehicle position
+The next step is to compute the radius of curvature of the fit. An awesome tutorial about this topic can be seen [here](http://www.intmath.com/applications-differentiation/8-radius-curvature.php) 
+
+The radius of curvature is nothing else than a "kiss" between a circle and a curve. The "kiss" is described as a tangent where the 2 curves met. The following image is cited from the [tutorial](http://www.intmath.com/applications-differentiation/8-radius-curvature.php).
+
+![Radius of curvature](report/radius_curvature.png)
+
+The radius of curvature is calculated by the following formula:
+
+![Formula: Radius of curvature](report/radius_curvature_formula.png)
+
+This formula is applied for both lines as well as the bottom of the image to calculate the offset of the car.
+
+Also since we want to calculate the length in meters we will define a meter in x dimension as 3.7/700 and in y dimension 30/720.
+
+To calculate the offset from the car I decided that the camera is in the center of the image which is 640. Then I used the following formula: 
+
+**((Left_line + Right_line) / 2 - 640) * x_dimension**
+
+* Left_line and Right_line are polynomials
+* 640 is the center of image
+* x_dimension is a meter in pixel value
+
+
+The code can be seen in [curvature.py](scripts/curvature.py).
+
+
